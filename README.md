@@ -43,3 +43,9 @@ COMMIT;
 
 create db.js in config/\
 see example in config/db.example.js
+
+### todo 
+
+1. Add mvc pattern
+2. Add admin/user page
+3. ...
