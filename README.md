@@ -47,5 +47,5 @@ see example in config/db.example.js
 ### todo 
 
 1. Add mvc pattern
-2. Add admin/user page
-3. ...
+2. Add admin/user page/controller/model
+3. Think over architecture mvc app for future projects
