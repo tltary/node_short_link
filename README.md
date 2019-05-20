@@ -38,3 +38,8 @@ ALTER TABLE `links`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 ```
+
+### database connect
+
+create db.js in config/
+see exmaple in config/db.example.js
