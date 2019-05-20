@@ -13,13 +13,13 @@ https://github.com/ - https://<your-url>/008ec4453ff31513f43893cba7aa31c8
 ### npm commnad
 
 ```npm
-server_start     -  npm run pm2 start server.js
-server_list      -  npm run pm2 list
-server_monit     -  npm run pm2 monit
-server_show      -  npm run pm2 show
-server_stop      -  npm run pm2 stop
-server_restart   -  npm run pm2 restart
-server_delete    -  npm run pm2 delete
+start server     -  npm run pm2 start server.js
+list server      -  npm run pm2 list
+monit server     -  npm run pm2 monit
+show server      -  npm run pm2 show
+stop server      -  npm run pm2 stop
+restart server   -  npm run pm2 restart
+delete server    -  npm run pm2 delete
 ```
 
 ### mysql
