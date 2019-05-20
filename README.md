@@ -41,5 +41,5 @@ COMMIT;
 
 ### database connect
 
-create db.js in config/
-see exmaple in config/db.example.js
+create db.js in config/\
+see example in config/db.example.js
