@@ -12,8 +12,6 @@
     "server_stop": "pm2 stop",
     "server_restart": "pm2 restart",
     "server_delete": "pm2 delete",
-    "build": "webpack",
-    "start": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
