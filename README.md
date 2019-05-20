@@ -10,7 +10,7 @@ Project saves your link to the database and, using md5 hash, finds it
 https://github.com/ - https://<your-url>/008ec4453ff31513f43893cba7aa31c8
 ```
 
-### npm commnad
+### npm command
 
 ```npm
 npm run server_start     - pm2 start server.js
