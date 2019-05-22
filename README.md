@@ -27,10 +27,14 @@ npm run server_delete    - pm2 delete
 ```sql
 CREATE TABLE `links` (
   `id` int(11) NOT NULL,
+  `cookie` text NOT NULL,
   `link` text NOT NULL,
+  `link_block` text NOT NULL,
   `hash` text NOT NULL,
+  `count` int(11) NOT NULL,
   `is_block` int(11) NOT NULL,
-  `time_add` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `time_add` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `time_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE `links`
   ADD PRIMARY KEY (`id`);
