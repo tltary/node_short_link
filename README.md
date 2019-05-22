@@ -2,12 +2,12 @@
 
 start on localhost:8000
 
-Project saves your link to the database and, using md5 hash, finds it
+The project saves a short link that is collected using sha256 hash from which the interval is taken according to the formula from random_number to (random_number + 4) + random number in the interval from 0 to 999
 
 ### example
 
 ```link
-https://github.com/ - https://<your-url>/008ec4453ff31513f43893cba7aa31c8
+https://github.com/ = https://<your-url>/09a8195
 ```
 
 ### npm command
@@ -37,6 +37,20 @@ ALTER TABLE `links`
 ALTER TABLE `links`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `login` text NOT NULL,
+  `password` text NOT NULL,
+  `email` text NOT NULL,
+  `time_register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 ```
 
 ### database connect
@@ -46,6 +60,7 @@ see example in config/db.example.js
 
 ### todo 
 
-1. Add mvc pattern
-2. Add admin/user page/controller/model
-3. Think over architecture mvc app for future projects
+1.  ̶A̶d̶d̶ ̶m̶v̶c̶ ̶p̶a̶t̶t̶e̶r̶n̶
+2. Add main page
+3. Add view create link
+4.  ̶T̶h̶i̶n̶k̶ ̶o̶v̶e̶r̶ ̶a̶r̶c̶h̶i̶t̶e̶c̶t̶u̶r̶e̶ ̶m̶v̶c̶ ̶a̶p̶p̶ ̶f̶o̶r̶ ̶f̶u̶t̶u̶r̶e̶ ̶p̶r̶o̶j̶e̶c̶t̶s̶
