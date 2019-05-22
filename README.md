@@ -1,4 +1,4 @@
-# Node short link with express
+# Node short link with express and swig
 
 start on localhost:8000
 
