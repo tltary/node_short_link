@@ -1,1 +1,0 @@
-const user = require('../app/route/user.route');
