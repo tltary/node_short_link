@@ -7,7 +7,7 @@ The project saves a short link that is collected using sha256 hash from which th
 ### example
 
 ```link
-https://github.com/ = https://<your-url>/09a8195
+https://github.com/ = https://<your-url>/g/09a8195
 ```
 
 ### npm command
@@ -65,6 +65,6 @@ see example in config/db.example.js
 ### todo 
 
 1.  ̶A̶d̶d̶ ̶m̶v̶c̶ ̶p̶a̶t̶t̶e̶r̶n̶
-2. Add main page
-3. Add view create link
+2.  ̶A̶d̶d̶ ̶m̶a̶i̶n̶ ̶p̶a̶g̶e̶
+3.  ̶A̶d̶d̶ ̶v̶i̶e̶w̶ ̶c̶r̶e̶a̶t̶e̶ ̶l̶i̶n̶k̶
 4.  ̶T̶h̶i̶n̶k̶ ̶o̶v̶e̶r̶ ̶a̶r̶c̶h̶i̶t̶e̶c̶t̶u̶r̶e̶ ̶m̶v̶c̶ ̶a̶p̶p̶ ̶f̶o̶r̶ ̶f̶u̶t̶u̶r̶e̶ ̶p̶r̶o̶j̶e̶c̶t̶s̶
