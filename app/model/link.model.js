@@ -1,14 +1,32 @@
 const mysql          = require('mysql');
 const db             = require('../../config/db');
 
-module.exports.getLink = function(cookie, cb) {
-    db.query('SELECT * FROM `links` WHERE `cookie` = ?', [cookie], function(err, rows, fields) {
+module.exports.getLink = function(cb) {
+    db.query('SELECT `hash`,`link`,`id` FROM `links` WHERE `is_block` = 0', function(err, rows, fields) {
         cb(err, rows);
     });
 }
 
-module.exports.addLink = function(link, hash, cookie, cb) {
-    db.query('INSERT INTO `links` (`link`, `hash`, `cookie`) VALUES (?, ?, ?)', [link, hash, cookie], function(err, rows, fields) {
+module.exports.editLink = function(link, id, cb) {
+    db.query('UPDATE `links` SET `link`=? WHERE `id` = ?', [link, id], function(err, rows, fields) {
+        cb(err, rows);
+    });
+}
+
+module.exports.blockLink = function(id, cb) {
+    db.query('UPDATE `links` SET `is_block` = 1 WHERE `id` = ?', [id], function(err, rows, fields) {
+        cb(err, rows);
+    });
+}
+
+module.exports.addLink = function(link, hash, cb) {
+    db.query('INSERT INTO `links` (`link`, `hash`,`link_block`) VALUES (?, ?, "https://ffad.ru")', [link, hash], function(err, rows, fields) {
+        cb(err, rows);
+    });
+}
+
+module.exports.getAuth = function(login, password, cb) {
+    db.query('SELECT * FROM `user` WHERE `login` LIKE ? AND `password` LIKE ? LIMIT 1', [login, password], function(err, rows, fields) {
         cb(err, rows);
     });
 }

@@ -5,7 +5,6 @@ const CryptoJS       = require("crypto-js");
 const bodyParser     = require('body-parser');
 const session        = require('express-session');
 const swig           = require('swig');
-const uuidv1         = require('uuid/v1');
 const mysql          = require('mysql');
 const cons           = require('consolidate');
 const fs             = require('fs');

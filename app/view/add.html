@@ -1,11 +1,73 @@
 {% extends 'layout.html' %}
 
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<style>
+		.create__form {
+			margin-bottom: 30px;
+		}
+		.delete__link {
+			cursor: pointer;
+			width: 100%;
+		}
+	</style>
+{% endblock %}
+
 {% block content %}
-    <form action="/add/create/" method="_GET">
-        <input type="text" name="link">
-        <button type="submit">create link</button>
-    </form>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4">
+			<form class="create__form" action="/add/create/" method="_GET">
+			  	<div class="form-group">
+			  	  	<label for="log_input">Введите ссылку</label>
+			  	 	<input type="text" name="link" class="form-control" id="log_input">
+			  	</div>
+			  	<button type="submit" class="btn btn-primary">Создать ссылку</button>
+			</form>
+		</div>
+		<div class="col-lg-12">
+			<table id="tbl" class="display" style="width:100%">
+				<thead>
+		            <tr>
+		                <th>Сокращенная ссылка</th>
+		                <th>Полная ссылка</th>
+		                <th>Удалить</th>
+		            </tr>
+		        </thead>
+		        <tbody id="app">
+		        </tbody>
+		    </table>
+		</div>
+	</div>
+</div>
 
-	<div id="app"></div>
+{% endblock %}
 
+{% block js %}
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" type="text/javascript"></script>
+	<script>
+		$.ajax({
+		  	url: '/api/all/'
+		}).done(function(res) {
+			let rnd = '';
+		 	for (let i = 0;i < res.length;i = i + 1) {
+		 	 	rnd += '<tr>' +
+		 	 			'<td>https://ffskr.site/g/' + res[i].hash + '</td>' +
+		 	 			'<td>' + res[i].link + '</td>' +
+		 	 			'<td><span class="btn btn-danger delete__link js-link-delete" data-id="' + res[i].id + '">удалить</span></td>' +
+		 	 		'</tr>';
+		 	}
+		 	$('#app').html(rnd);
+			$('#tbl').DataTable();
+		});
+
+		$(document).on('click','.js-link-delete', function(){
+			$.ajax({
+		  	url: '/api/block/' + $(this).data('id')
+			}).done(function(res) {
+				document.location.reload(true);
+			});
+		})
+		
+	</script>
 {% endblock %}
